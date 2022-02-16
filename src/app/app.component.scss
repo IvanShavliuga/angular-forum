@@ -1,0 +1,70 @@
+
+  .forum {
+    background-color: gray;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    &__box {
+        width: 90vw;
+        margin:  auto;
+        background-color: #9f559f;
+        border: none;
+        border-collapse: collapse;
+    }
+  }
+  .message {
+    &__param {
+        font-weight: 500;
+        font-size: 14px;
+    }
+    &__val {
+        color: #f5f;
+        font-size: 14px;
+    }
+    &__txt {
+        background-color: #ccc;
+        height: 100px;
+        vertical-align: top;
+    }
+    &__foot {
+        background-color: #ccc;
+        border-top: 3px dotted #f0f;
+        font-size: 14px;
+        color: blue;
+    }
+  }
+  .animlike {
+    animation: like 3s infinite;
+  }
+  form {
+    margin-top: 20px;
+    border: 3px dotted white;
+    padding: 10px;
+  }
+  Label {
+    margin: 10px;
+    color: white;
+  }
+  input,
+  textarea {
+    margin: 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    padding: 5px;
+  }
+  pre {
+    color: yellow;
+    background-color: red;
+  }
+  @keyframes like {
+    from {
+      transform: scaleY(1);
+    }
+    to {
+      transform: scaleY(1.7);
+    }
+  }
+  
