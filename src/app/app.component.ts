@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = "CodeSandbox";
   count = 0;
+  text = '';
+  name = 'Iva';
+  country = 'Belarus';
+  age = 35;
   users = [
     {
       id: 1,
@@ -63,5 +67,66 @@ export class AppComponent {
   };
   spam(id: number) {
     this.users.splice(id-1,1);
-  }
+  };
+  answer(id: number) {
+    console.log('answer')
+    if(this.text=='') 
+      this.text=this.users[id-1].name+", ";
+    else
+      this.text+=" "+this.users[id-1].name+",";
+  };
+ messagenew() {
+    const msgnew ={
+      id: this.users.length + 1,
+      name: '',
+      country: '',
+      age: 0,
+      priv: false,
+      date: '',
+      time: '',
+      msg: '',
+      like: 0,
+      click: false
+    };
+    let dt= new Date();
+    let str= dt.toISOString();
+    let s=str.split("T");
+    let t=s[1].split(".");
+    msgnew.name=this.name;
+    msgnew.country=this.country;
+    msgnew.age=this.age;
+    msgnew.priv=false;
+    msgnew.date=s[0];
+    msgnew.time=t[0];
+    msgnew.msg=this.text;
+    let err=false, iderr=0;
+    this.error="";
+    if(this.name===undefined) {
+    this.error="Please, enter name";
+      iderr++;
+      err=true;
+    }   
+    if(this.country===undefined) {
+      if(iderr) this.error+="\nPlease, enter country";
+        else this.error="Please, enter country";
+        iderr++;
+        err=true;
+      }   
+    if(this.age===undefined) {
+      if(iderr) this.error+="\nPlease, enter age";
+      else this.error="Please, enter age";
+      iderr++;
+      err=true;
+    } 
+    if(this.text===undefined) {
+      if(iderr)  this.error+="\nPlease, enter text message";
+      else this.error="Please, enter text message";
+      err=true;
+      iderr++;
+    }
+    console.log(msgnew)
+    if(!err) this.users.push(msgnew);
+    return undefined;
+};
+
 }

@@ -20,10 +20,32 @@
         <td class="message__txt" colspan="12">{{u.msg}}</td>
       </tr>
       <tr class="message__foot">
-        <td ng-click="answer(u.id)">Answer</td>
+        <td (click)="answer(u.id)">Answer</td>
         <td ng-click="quote(u.id)">Quote</td>
         <td ng-click="spam(u.id)" colspan="10">Spam</td>
       </tr>
     </tbody>
   </table>
+  <div class="form">
+    <pre>{{error}}</pre>
+    <div class="form__inputs">
+      <div>
+        <label>Name:</label><br>
+        <input type="text" value="John" ng-model="name"><br>
+      </div>
+      <div>
+        <label>Country:</label><br>
+        <input type="text" value="Testin" ng-model="country"><br>
+      </div>
+      <div>
+        <label>Age:</label><br>
+        <input type="text" value="30" ng-model="age"><br>
+      </div>
+    </div>
+    <div>
+    <label>Text</label><br>
+    <textarea ng-model="text" rows="10" cols="23">This is text for test</textarea>
+    </div>
+    <input type="button" value="💬send message" (click)="messagenew()">
+  </div>
 </section>
